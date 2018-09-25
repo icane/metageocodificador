@@ -5,9 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<title>reveal.js</title>
-
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/solarized.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -23,9 +23,259 @@
 	</head>
 	<body>
 		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+			<div class="slides" style="left: 30%">
+				<section data-id="1" data-markdown>
+					<script type="text/template">
+						### Geocodificación múltiple de direcciones postales basada en proveedores externos
+
+					</script>
+				</section>
+				<section>
+				<section data-id="2" data-markdown>
+					<script type="text/template">
+						#### Motivación <!-- .slide: style="text-align: left;"> -->
+						- Ausencia de:
+						  + Callejero digital propio
+						  + Infraestructura geográfica suficiente
+						- Satisfacer necesidades de información geolocalizada
+						- Completar publicaciones actuales
+					</script>
+				</section>
+
+					<section data-id="2" data-markdown>
+						<script type="text/template">
+					#### Objetivos <!-- .slide: style="text-align: left;"> -->
+					- Facilitar el proceso de geocodificación
+					- Integrar diversos proveedores
+					- Mejorar la fiabilidad de los resultados finales
+					- Ponerlo en valor
+
+					</script>
+				</section>
+				</section>
+				<section data-id="3" data-markdown>
+					<script type="text/template">
+						#### Trabajos previos <!-- .slide: style="text-align: left;"> -->
+						- [Proyecto MEDEA](http://www.proyectomedea.org/)
+						- Análisis del [ISTAC](http://www.gobiernodecanarias.org/istac/)
+					</script>
+				</section>
+				<section>
+
+				<section data-id="4" data-markdown>
+					<script type="text/template">
+					##### Análisis
+					#### Direcciones geocodificadas <!-- .slide: style="text-align: left;"> -->
+
+					|Estado (%)|google|cartociudadv2|arcgis|cartociudadv1|bing|mapbox|places|
+					|----------|-----:|------------:|-----:|------------:|---:|-----:|-----:|
+					|Exact |99,8|77,4|75,4|65,2|85,9|74,2|41,6|
+					|Nearest|0|17,2|15,9|16,0|0|16,4|0|
+					|Duplicate|0|0|0|0|0|0|56,9|
+					|Not found|0|5,3|8,7|18,8|14,1|9,4|0|
+					|Null|0,2|0,1|0|0|0|0|2,1|
+					</script>
+				</section>
+				<section data-id="4a" data-markdown>
+					<script type="text/template">
+					##### Análisis
+					#### Coincidencia entre proveedores <!-- .slide: style="text-align: left;"> -->
+
+					|Coincidencia (%)|arcgis|bing|cartociudadv1|cartociudadv2|google|mapbox|places|
+					|----------|-----:|------------:|-----:|------------:|---:|-----:|-----:|
+					|arcgis ||82,9|67,5|26,2|82,3|70,4|24,2|
+					|bing|82,9||65,8|73,1|79,1|67,6|22,6|
+					|cartociudadv1|67,5|65,8||74,1|75,1|63,1|19,6|
+					|cartociudadv2|76,2|73,1|74,1||84,0|69,6|23,0|
+					|google|82,3|79,1|75,1|84,0||77,1|25,1|
+					|mapbox|70,4|67,6|63,1|69,6|77,1||25,2|
+					|places|24,2|22,6|19,6|23,0|25,1|25,2||
+					</script>
+				</section>
+				</section>
+				<section>
+				<section data-id="1" data-markdown>
+					<script type="text/template">
+						##### Diseño e implementación <!-- .slide: style="text-align: left;"> -->
+						#### Tecnología
+
+						- [Python 3.5](https://www.python.org/)
+						- [Geocoder 1.23.2](https://geocoder.readthedocs.io/)
+						- [Shapely](https://pypi.org/project/Shapely/), [scikit-learn](http://scikit-learn.org/stable/)
+					</script>
+				</section>
+					<section data-id="1" data-markdown>
+						<script type="text/template">
+							##### Diseño e implementación <!-- .slide: style="text-align: left;"> -->
+							#### Componentes
+
+							![Diagrama de componentes](./img/componentes.png)
+						</script>
+					</section>
+				</section>
+				<section>
+				<section data-id="1" data-markdown>
+					<script type="text/template">
+						#####  Algoritmo de decisión <!-- .slide: style="text-align: left;"> -->
+						#### Inicialización
+						![Diagrama de inicialización del proceso de geocodificación](./img/inicializacion.png)
+					</script>
+				</section>
+					<section data-id="1" data-markdown>
+						<script type="text/template">
+							#####  Algoritmo de decisión <!-- .slide: style="text-align: left;"> -->
+							#### Geocodificación
+							![Diagrama de geocodificación propiamente dicha](./img/geocodificacion.png)
+						</script>
+					</section>
+					<section data-id="1" data-markdown>
+						<script type="text/template">
+							#####  Algoritmo de decisión <!-- .slide: style="text-align: left;"> -->
+							#### Procesado de coordenadas
+							![Diagrama de procesado de coordenadas](./img/calculo_coordenadas.png)
+						</script>
+					</section>
+					<section data-id="1" data-markdown>
+						<script type="text/template">
+							#####  Algoritmo de decisión <!-- .slide: style="text-align: left;"> -->
+							#### Selección del cluster
+							![Diagrama de seleccion del cluster](./img/seleccion_cluster.svg)
+						</script>
+					</section>
+					<section data-id="1" data-markdown>
+						<script type="text/template">
+							#####  Algoritmo de decisión <!-- .slide: style="text-align: left;"> -->
+							#### Selección para empresas
+							![Diagrama de seleccion para empresas](./img/decision_empresas.svg)
+						</script>
+					</section>
+					<section data-id="1" data-markdown>
+						<script type="text/template">
+							#####  Algoritmo de decisión <!-- .slide: style="text-align: left;"> -->
+							#### Selección común
+							![Diagrama de seleccion común](./img/seleccion_comun.svg)
+						</script>
+					</section>
+				</section>
+				<section>
+				<section data-id="1" data-markdown>
+					<script type="text/template">
+						#####  Resultados <!-- .slide: style="text-align: left;"> -->
+						#### Entorno urbano
+						|Evaluación (%)|google|cartociudadV2|arcgis|cartociudadV1|bing|mapbox|places|
+						|----------|-----:|------------:|-----:|------------:|---:|-----:|-----:|
+						|Ok|91,5|77,6|78,3|70,6|77,4|64,4|13,2|
+						|Cercano|2,9|6,2 |5,4|4,0|3,8|13,9|12,7|
+						|Incorrecto|2,8|8,7|5,1|4,3|3,4|10,1|13,1|
+						|Nula (*)|0,3|5,4|9,3|18,8|14,1|9,9|59,4|
+						|Indeterminado|2,5|2,1|1,9|2,3|1,3|1,7|1,6|
+						|Total|100,0|100,0|100,0|100,0|100,0|100,0|100,0|
+						<small>(*) Coordenada nula o de calidad insuficiente</small>
+
+					</script>
+				</section>
+					<section data-id="1" data-markdown>
+						<script type="text/template">
+							#####  Resultados <!-- .slide: style="text-align: left;"> -->
+							#### Evaluación entorno urbano
+							![Gráfica de evaluación de entorno urbano](./img/urbano_evaluacion.png)
+						</script>
+					</section>
+					<section data-id="1" data-markdown>
+						<script type="text/template">
+							#####  Resultados <!-- .slide: style="text-align: left;"> -->
+							#### Entorno rural
+							|Evaluación (%)|google|cartociudadV2|arcgis|cartociudadV1|bing|mapbox|places|
+							|----------|-----:|------------:|-----:|------------:|---:|-----:|-----:|
+							|Ok|71,3|53,7|38,1|51,4|36,2|38,8|20,4|
+							|Cercano|7,1|9,6|9,6|8,1|5,1|11,2|14,4|
+							|Incorrecto|6,8|8,0|14,6|6,9|8,2|11,3|14,0|
+							|Nula (*)|3,5|23,1|31,4|27,9|45,8|34,2|46,3|
+							|Indeterminado|11,3|5,6|6,3|5,7|4,7|4,5|4,9|
+							|Total|100,0|100,0|100,0|100,0|100,0|100,0|100,0|
+							<small>(*) Coordenada nula o de calidad insuficiente</small>
+						</script>
+					</section>
+					<section data-id="1" data-markdown>
+						<script type="text/template">
+							#####  Resultados <!-- .slide: style="text-align: left;"> -->
+							#### Evaluación entorno rural
+							![Gráfica de evaluación de entorno rural](./img/rural_evaluacion.png)
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-id="1" data-markdown>
+						<script type="text/template">
+							#####  Conclusiones <!-- .slide: style="text-align: left;"> -->
+							#### Entorno urbano
+							|Mejor (%)|Ok|Cerca|Indeterminado|Error|Revisión|Total|
+							|----------|-----:|------------:|-----:|------------:|---:|-----:|
+							|google|36,6|1,5|1,3|0,8|0,0|**40,2**|
+							|cartociudadV2|29,0|1,0|0,6|1,6|0,0|**32,2**|
+							|cartociudadV1|25,5|0,9|0,7|0,3|0,0|**27,4**|
+							|revisión|0,0|0,0|0,0|0,0|0,2|**0,2**|
+							|**Total**|**91,1** <!-- .element: class="fragment highlight-blue" data-fragment-index="1"-->|**3,4** <!-- .element: class="fragment highlight-blue" data-fragment-index="1"-->|**2,6**|**2,7**|**0,2**|**100,0**|
+
+						</script>
+					</section>
+					<section data-id="1" data-markdown>
+						<script type="text/template">
+							#####  Conclusiones <!-- .slide: style="text-align: left;"> -->
+							#### Entorno rural
+							|Mejor (%)|Ok|Cerca|Indeterminado|Error|Revisión|Total|
+							|----------|-----:|------------:|-----:|------------:|---:|-----:|
+							|google|32,2|3,6|4,4|1,7|0,0|**41,9**|
+							|cartociudadV2|19,6|2,7|2,0|1,8|0,0|**26,1**|
+							|cartociudadV1|16,2|2,7|1,6|0,6|0,0|**21,1**|
+							|revisión|0,0|0,0|0,0|0,0|10,9|**10,9**|
+							|**Total**|**68,0** <!-- .element: class="fragment highlight-blue" data-fragment-index="1"-->|**9,0** <!-- .element: class="fragment highlight-blue" data-fragment-index="1"-->|**8,0**|**4,1**|**10,9**|**100,0**|
+
+						</script>
+					</section>
+					<section data-id="1" data-markdown>
+						<script type="text/template">
+							#####  Conclusiones <!-- .slide: style="text-align: left;"> -->
+							#### Precisión (P)
+							|Precisión (%)|Google|Metageocodificador|
+							|----------|-----:|------------:|
+							|Entornos rurales|92,0|95,0 <!-- .element: class="fragment highlight-blue" data-fragment-index="1"-->|
+							|Entornos urbanos|97,1|97,2 <!-- .element: class="fragment highlight-blue" data-fragment-index="1"-->|
+							*con:*
+							$$P = \frac{VP}{VP + FP}$$
+							*donde:*
+							- *VP: Verdaderos Positivos*
+							- *FP: Falsos Positivos*
+						</script>
+					</section>
+				</section>
+				<section>
+
+					<div>
+						<a href="http://www.icane.es"><img alt="Logotipo ICANE" src="./img/logo500.png"
+														   style="max-width: none; max-height: none; color: rgb(255, 153, 0);  vertical-align:middle;"/>
+						</a>
+						<a href="http://www.cantabria.es"><img alt="Logotipo DGOT" src="./img/informatica500.png"
+															   style="max-width: none; max-height: none; color: rgb(255, 153, 0);  vertical-align:middle; "/>
+						</a>
+						<p style="font-size:20px; text-align:center; margin-top: 1em"><span style="font-weight: bold;"><a
+								href="https://github.com/icane/metageocodificador">Acceso al repositorio con la presentación</a></span>
+						</p>
+						<p style="font-size:20px; text-align:center; margin-top: 1em"><span style="font-weight: bold;">URL de la presentación: <a
+								href="http://icane.github.io/metageocodificador">http://icane.github.io/metageocodificador</a></span>
+						</p>
+
+						<p style="font-size:20px; text-align:center; margin-top: 1em"><span style="font-weight: bold;"><a
+								href="mailto:bedia_rt@cantabria.es">Raquel Bedia Expósito</a>, Técnica de Estadísticas Económicas</p>
+
+
+						<p style="font-size:20px; text-align:center; margin-top: 1em"><span style="font-weight: bold;"><a
+								href="http://about.me/predicador37">Miguel Expósito Martín</a>, Jefe de Sección de Informática Estadística
+					y Banco de Datos</p>
+
+					</div>
+
+				</section>
 			</div>
 		</div>
 
@@ -37,10 +287,17 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
-				dependencies: [
+                slideNumber: true,
+                margin: 0,
+                math: {
+                    mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+                    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+                },
+                dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/math/math.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});

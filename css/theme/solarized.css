@@ -50,11 +50,10 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #586e75;
-  font-family: "League Gothic", Impact, sans-serif;
-  font-weight: normal;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
   line-height: 1.2;
   letter-spacing: normal;
-  text-transform: uppercase;
   text-shadow: none;
   word-wrap: break-word; }
 
@@ -69,6 +68,9 @@ body {
 
 .reveal h4 {
   font-size: 1em; }
+
+.reveal h5 {
+  font-size: 0.8em; }
 
 .reveal h1 {
   text-shadow: none; }
@@ -168,6 +170,7 @@ body {
 
 .reveal table {
   margin: auto;
+  font-size: 0.65em;
   border-collapse: collapse;
   border-spacing: 0; }
 
