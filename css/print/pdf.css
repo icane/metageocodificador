@@ -100,6 +100,10 @@ ul, ol, div, p {
 	transform: none !important;
 }
 
+.reveal table {
+	font-size: 20px;
+}
+
 .reveal section.stack {
 	position: relative !important;
 	margin: 0 !important;
