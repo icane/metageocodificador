@@ -64,7 +64,7 @@ ul, ol, div, p {
 	height: auto !important;
 	zoom: 1 !important;
 
-	left: auto;
+	left: 100px;
 	top: auto;
 	margin: 0 !important;
 	padding: 0 !important;

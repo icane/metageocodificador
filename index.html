@@ -33,7 +33,7 @@
 				<section>
 				<section data-id="2" data-markdown>
 					<script type="text/template">
-						#### Motivación <!-- .slide: style="text-align: left;"> -->
+						#### Motivación
 						- Ausencia de:
 						  + Callejero digital propio
 						  + Infraestructura geográfica suficiente
@@ -44,7 +44,7 @@
 
 					<section data-id="2" data-markdown>
 						<script type="text/template">
-					#### Objetivos <!-- .slide: style="text-align: left;"> -->
+					#### Objetivos
 					- Facilitar el proceso de geocodificación
 					- Integrar diversos proveedores
 					- Mejorar la fiabilidad de los resultados finales
@@ -55,7 +55,7 @@
 				</section>
 				<section data-id="3" data-markdown>
 					<script type="text/template">
-						#### Trabajos previos <!-- .slide: style="text-align: left;"> -->
+						#### Trabajos previos
 						- [Proyecto MEDEA](http://www.proyectomedea.org/)
 						- Análisis del [ISTAC](http://www.gobiernodecanarias.org/istac/)
 					</script>
@@ -65,7 +65,7 @@
 				<section data-id="4" data-markdown>
 					<script type="text/template">
 					##### Análisis
-					#### Direcciones geocodificadas <!-- .slide: style="text-align: left;"> -->
+					#### Direcciones geocodificadas
 
 					|Estado (%)|google|cartociudadv2|arcgis|cartociudadv1|bing|mapbox|places|
 					|----------|-----:|------------:|-----:|------------:|---:|-----:|-----:|
@@ -79,7 +79,7 @@
 				<section data-id="4a" data-markdown>
 					<script type="text/template">
 					##### Análisis
-					#### Coincidencia entre proveedores <!-- .slide: style="text-align: left;"> -->
+					#### Coincidencia entre proveedores
 
 					|Coincidencia (%)|arcgis|bing|cartociudadv1|cartociudadv2|google|mapbox|places|
 					|----------|-----:|------------:|-----:|------------:|---:|-----:|-----:|
@@ -96,7 +96,7 @@
 				<section>
 				<section data-id="1" data-markdown>
 					<script type="text/template">
-						##### Diseño e implementación <!-- .slide: style="text-align: left;"> -->
+						##### Diseño e implementación
 						#### Tecnología
 
 						- [Python 3.5](https://www.python.org/)
@@ -106,7 +106,7 @@
 				</section>
 					<section data-id="1" data-markdown>
 						<script type="text/template">
-							##### Diseño e implementación <!-- .slide: style="text-align: left;"> -->
+							##### Diseño e implementación
 							#### Componentes
 
 							![Diagrama de componentes](./img/componentes.png)
@@ -116,43 +116,43 @@
 				<section>
 				<section data-id="1" data-markdown>
 					<script type="text/template">
-						#####  Algoritmo de decisión <!-- .slide: style="text-align: left;"> -->
+						#####  Algoritmo de decisión
 						#### Inicialización
 						![Diagrama de inicialización del proceso de geocodificación](./img/inicializacion.png)
 					</script>
 				</section>
 					<section data-id="1" data-markdown>
 						<script type="text/template">
-							#####  Algoritmo de decisión <!-- .slide: style="text-align: left;"> -->
+							#####  Algoritmo de decisión
 							#### Geocodificación
 							![Diagrama de geocodificación propiamente dicha](./img/geocodificacion.png)
 						</script>
 					</section>
 					<section data-id="1" data-markdown>
 						<script type="text/template">
-							#####  Algoritmo de decisión <!-- .slide: style="text-align: left;"> -->
+							#####  Algoritmo de decisión
 							#### Procesado de coordenadas
 							![Diagrama de procesado de coordenadas](./img/calculo_coordenadas.png)
 						</script>
 					</section>
 					<section data-id="1" data-markdown>
 						<script type="text/template">
-							#####  Algoritmo de decisión <!-- .slide: style="text-align: left;"> -->
+							#####  Algoritmo de decisión
 							#### Selección del cluster
 							![Diagrama de seleccion del cluster](./img/seleccion_cluster.svg)
 						</script>
 					</section>
 					<section data-id="1" data-markdown>
 						<script type="text/template">
-							#####  Algoritmo de decisión <!-- .slide: style="text-align: left;"> -->
-							#### Selección para empresas
+							#####  Algoritmo de decisión
+							#### Decisión para empresas
 							![Diagrama de seleccion para empresas](./img/decision_empresas.svg)
 						</script>
 					</section>
 					<section data-id="1" data-markdown>
 						<script type="text/template">
-							#####  Algoritmo de decisión <!-- .slide: style="text-align: left;"> -->
-							#### Selección común
+							#####  Algoritmo de decisión
+							#### Decisión común
 							![Diagrama de seleccion común](./img/seleccion_comun.svg)
 						</script>
 					</section>
@@ -160,7 +160,7 @@
 				<section>
 				<section data-id="1" data-markdown>
 					<script type="text/template">
-						#####  Resultados <!-- .slide: style="text-align: left;"> -->
+						#####  Resultados
 						#### Entorno urbano
 						|Evaluación (%)|google|cartociudadV2|arcgis|cartociudadV1|bing|mapbox|places|
 						|----------|-----:|------------:|-----:|------------:|---:|-----:|-----:|
@@ -176,14 +176,14 @@
 				</section>
 					<section data-id="1" data-markdown>
 						<script type="text/template">
-							#####  Resultados <!-- .slide: style="text-align: left;"> -->
+							#####  Resultados
 							#### Evaluación entorno urbano
 							![Gráfica de evaluación de entorno urbano](./img/urbano_evaluacion.png)
 						</script>
 					</section>
 					<section data-id="1" data-markdown>
 						<script type="text/template">
-							#####  Resultados <!-- .slide: style="text-align: left;"> -->
+							#####  Resultados
 							#### Entorno rural
 							|Evaluación (%)|google|cartociudadV2|arcgis|cartociudadV1|bing|mapbox|places|
 							|----------|-----:|------------:|-----:|------------:|---:|-----:|-----:|
@@ -198,7 +198,7 @@
 					</section>
 					<section data-id="1" data-markdown>
 						<script type="text/template">
-							#####  Resultados <!-- .slide: style="text-align: left;"> -->
+							#####  Resultados
 							#### Evaluación entorno rural
 							![Gráfica de evaluación de entorno rural](./img/rural_evaluacion.png)
 						</script>
@@ -207,7 +207,7 @@
 				<section>
 					<section data-id="1" data-markdown>
 						<script type="text/template">
-							#####  Conclusiones <!-- .slide: style="text-align: left;"> -->
+							#####  Conclusiones
 							#### Entorno urbano
 							|Mejor (%)|Ok|Cerca|Indeterminado|Error|Revisión|Total|
 							|----------|-----:|------------:|-----:|------------:|---:|-----:|
@@ -221,7 +221,7 @@
 					</section>
 					<section data-id="1" data-markdown>
 						<script type="text/template">
-							#####  Conclusiones <!-- .slide: style="text-align: left;"> -->
+							#####  Conclusiones
 							#### Entorno rural
 							|Mejor (%)|Ok|Cerca|Indeterminado|Error|Revisión|Total|
 							|----------|-----:|------------:|-----:|------------:|---:|-----:|
@@ -235,15 +235,15 @@
 					</section>
 					<section data-id="1" data-markdown>
 						<script type="text/template">
-							#####  Conclusiones <!-- .slide: style="text-align: left;"> -->
+							#####  Conclusiones
 							#### Precisión (P)
 							|Precisión (%)|Google|Metageocodificador|
 							|----------|-----:|------------:|
 							|Entornos rurales|92,0|95,0 <!-- .element: class="fragment highlight-blue" data-fragment-index="1"-->|
 							|Entornos urbanos|97,1|97,2 <!-- .element: class="fragment highlight-blue" data-fragment-index="1"-->|
-							*con:*
+
 							$$P = \frac{VP}{VP + FP}$$
-							*donde:*
+
 							- *VP: Verdaderos Positivos*
 							- *FP: Falsos Positivos*
 						</script>
